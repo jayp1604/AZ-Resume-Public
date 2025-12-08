@@ -1,0 +1,5 @@
+name = "jpresumev1"
+compatibility_date = "2025-12-08"
+
+[site]
+bucket = "./frontend"  # path to your static files
