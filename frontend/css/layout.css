@@ -205,11 +205,13 @@ ul#nav li.current a { color: #F06000; }
    line-height: 30px;
    color: #7A7A7A;
 }
-#about .profile-pic {
-   position: relative;
-   width: 120px;
-   height: 120px;
-   border-radius: 100%;
+.profile-pic {
+    width: 200px;          /* adjust if you want */
+    height: 200px;         
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 #about .contact-details { width: 41.66667%; }
 #about .download {
