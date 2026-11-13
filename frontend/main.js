@@ -1,22 +1,17 @@
-window.addEventListener( 'DOMContentLoaded', (event) =>{
-    getVisitCount();
+document.addEventListener("DOMContentLoaded", function() {
+    const counterElement = document.getElementById("counter");
     
-})
-
-const functionApiUrl = 'https://jayresumecounter.azurewebsites.net/api/GetResumeCounter?code=kioJEND8c5OssiLCxW1KZrxlroNdKyHsgrLf8byb9HKzAzFufGqvNA==';
-const localfunctionApi = 'http://localhost:7071/api/GetResumeCounter';
-
-const getVisitCount = () => {
-    let count = 30;
-    fetch(functionApiUrl).then (Response=> {
-        return Response.json()
-
-    }).then(response =>{
-        console. log("Website called function API.");
-        count = response.count;
-        document.getElementById("counter").innerText = count;
-    }).catch(function(error){
-        console.log(error);
-    })
-    return count;
-}
+    if (counterElement) {
+        // Calls a public counter API (replace namespace/key if desired, or use this default)
+        fetch("https://api.countapi.xyz/hit/jayp1604-portfolio/visits")
+            .then(response => response.json())
+            .then(data => {
+                counterElement.textContent = data.value;
+            })
+            .catch(error => {
+                console.error("Error fetching visitor count:", error);
+                // Fallback graceful display if the network/API fails
+                counterElement.textContent = "---";
+            });
+    }
+});
